@@ -35,11 +35,11 @@ solium --dir ./contracts
 
 * **Dean Eigenmann** - [decanus](https://github.com/decanus)
 
-See also the list of [contributors](https://github.com/ensdomains/Court/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/ensdomains/court/contributors) who participated in this project.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/ensdomains/blacklist/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/ensdomains/court/tags).
 
 ## License
 
