@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Blacklist uses npm to manage dependencies, therefore the installation process is kept simple:
+Court uses npm to manage dependencies, therefore the installation process is kept simple:
 
 ```
 npm install
@@ -16,7 +16,7 @@ npm install
 
 ### Running tests
 
-Blacklist uses truffle for its ethereum development environment. All tests can be run using truffle:
+Court uses truffle for its ethereum development environment. All tests can be run using truffle:
 
 ```
 truffle test
