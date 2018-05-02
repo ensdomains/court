@@ -1,0 +1,32 @@
+{
+  "name": "court",
+  "version": "0.0.1",
+  "description": "ENS arbitration contracts",
+  "author": "ensdomains",
+  "contributors": [
+    "Dean Eigenmann <dean@ens.domains>"
+  ],
+  "license": "BSD-2-clause",
+  "scripts": {
+    "report": "truffle test",
+    "lint": "solium --dir ./contracts"
+  },
+  "files": [
+    "contracts/",
+    "truffle.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ensdomains/Court.git"
+  },
+  "devDependencies": {
+    "solium": "^1.0.4",
+    "truffle": "^4.0.0"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts"
+  ]
+}
