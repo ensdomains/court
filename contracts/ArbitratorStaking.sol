@@ -1,13 +1,16 @@
 pragma solidity ^0.4.23;
 
 import "./SafeMath.sol";
+import "./Ownership/Ownable.sol";
 
 // ERC900 compliant staking interface supporting ETH stakes.
 // Code is based off of: https://github.com/HarbourProject/stakebank
 
-contract ArbitratorStaking {
+contract ArbitratorStaking is Ownable {
 
     using SafeMath for uint256;
+
+    uint private staked;
 
     mapping (address => uint) public stakes;
 
@@ -27,6 +30,7 @@ contract ArbitratorStaking {
         uint amount = msg.value;
 
         stakes[user] = stakes[user].add(amount);
+        staked = staked.add(amount);
 
         emit Staked(user, amount, totalStakedFor(user), data);
     }
@@ -41,9 +45,15 @@ contract ArbitratorStaking {
         // appeal times have run out for any disputes they have recently arbitrated.
 
         stakes[msg.sender] = stakes[msg.sender].sub(amount);
+        staked = staked.sub(amount);
         msg.sender.transfer(amount);
 
         emit Unstaked(msg.sender, amount, totalStakedFor(msg.sender), data);
+    }
+
+    function withdrawOverflow() public onlyOwner {
+        require(address(this).balance > staked);
+        msg.sender.transfer(address(this).balance.sub(staked));
     }
 
     /// @notice Returns total tokens staked for address.
@@ -56,7 +66,7 @@ contract ArbitratorStaking {
     /// @notice Returns total tokens staked.
     /// @return amount of tokens staked.
     function totalStaked() public view returns (uint256) {
-        return address(this).balance;
+        return staked;
     }
 
     /// @notice Returns if history related functions are implemented.
